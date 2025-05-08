@@ -5,7 +5,21 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { Leaf, Package, Users, ShoppingBag, LogOut, Plus, Check, Truck, X } from "lucide-react"
+import {
+  Leaf,
+  Package,
+  Users,
+  ShoppingBag,
+  LogOut,
+  Plus,
+  Check,
+  Truck,
+  X,
+  BarChart,
+  TrendingUp,
+  DollarSign,
+  ShoppingCart,
+} from "lucide-react"
 import Image from "next/image"
 
 export default function ManagerDashboard() {
@@ -25,6 +39,16 @@ export default function ManagerDashboard() {
   })
   const [selectedOrder, setSelectedOrder] = useState<any>(null)
   const [showOrderDetails, setShowOrderDetails] = useState(false)
+  const [reportPeriod, setReportPeriod] = useState("current-month")
+  const [reportData, setReportData] = useState<any>({
+    totalSales: 0,
+    orderCount: 0,
+    averageOrderValue: 0,
+    topProducts: [],
+    salesByDay: [],
+    salesByCategory: [],
+    monthlyComparison: [],
+  })
 
   useEffect(() => {
     // Verificar se o usuário está logado e é um gerente
@@ -73,6 +97,13 @@ export default function ManagerDashboard() {
       router.push("/login")
     }
   }, [router])
+
+  // Gerar relatórios quando os pedidos ou o período mudam
+  useEffect(() => {
+    if (orders.length > 0) {
+      generateReports(reportPeriod)
+    }
+  }, [orders, reportPeriod])
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser")
@@ -194,13 +225,200 @@ export default function ManagerDashboard() {
     }
   }
 
+  // Função para gerar relatórios com base no período selecionado
+  const generateReports = (period: string) => {
+    try {
+      // Definir datas de início e fim com base no período selecionado
+      const now = new Date()
+      let startDate: Date
+      let endDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59)
+      let periodLabel = ""
+
+      switch (period) {
+        case "current-month":
+          startDate = new Date(now.getFullYear(), now.getMonth(), 1)
+          periodLabel = `${now.toLocaleString("pt-BR", { month: "long", year: "numeric" })}`
+          break
+        case "last-month":
+          startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1)
+          endDate = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59)
+          periodLabel = `${startDate.toLocaleString("pt-BR", { month: "long", year: "numeric" })}`
+          break
+        case "last-3-months":
+          startDate = new Date(now.getFullYear(), now.getMonth() - 2, 1)
+          periodLabel = `Últimos 3 meses`
+          break
+        case "year-to-date":
+          startDate = new Date(now.getFullYear(), 0, 1)
+          periodLabel = `${now.getFullYear()} (até agora)`
+          break
+        case "last-year":
+          startDate = new Date(now.getFullYear() - 1, 0, 1)
+          endDate = new Date(now.getFullYear() - 1, 11, 31, 23, 59, 59)
+          periodLabel = `${now.getFullYear() - 1}`
+          break
+        default:
+          startDate = new Date(now.getFullYear(), now.getMonth(), 1)
+          periodLabel = `${now.toLocaleString("pt-BR", { month: "long", year: "numeric" })}`
+      }
+
+      // Filtrar pedidos pelo período e status (apenas pedidos concluídos)
+      const filteredOrders = orders.filter((order) => {
+        const orderDate = new Date(order.createdAt)
+        return orderDate >= startDate && orderDate <= endDate && order.status !== "cancelled"
+      })
+
+      // Calcular total de vendas
+      const totalSales = filteredOrders.reduce((sum, order) => sum + order.total, 0)
+
+      // Calcular valor médio do pedido
+      const averageOrderValue = filteredOrders.length > 0 ? totalSales / filteredOrders.length : 0
+
+      // Calcular produtos mais vendidos
+      const productSales: Record<string, { count: number; revenue: number; name: string }> = {}
+
+      filteredOrders.forEach((order) => {
+        if (order.items && Array.isArray(order.items)) {
+          order.items.forEach((item: any) => {
+            if (!productSales[item.productId]) {
+              productSales[item.productId] = {
+                count: 0,
+                revenue: 0,
+                name: item.name,
+              }
+            }
+            productSales[item.productId].count += item.quantity
+            productSales[item.productId].revenue += item.price * item.quantity
+          })
+        }
+      })
+
+      const topProducts = Object.entries(productSales)
+        .map(([id, data]) => ({
+          id,
+          name: data.name,
+          count: data.count,
+          revenue: data.revenue,
+        }))
+        .sort((a, b) => b.revenue - a.revenue)
+        .slice(0, 5)
+
+      // Calcular vendas por categoria
+      const categorySales: Record<string, number> = {}
+
+      filteredOrders.forEach((order) => {
+        if (order.items && Array.isArray(order.items)) {
+          order.items.forEach((item: any) => {
+            // Encontrar o produto para obter a categoria
+            const product = products.find((p) => p.id === item.productId)
+            const category = product?.category || "Sem categoria"
+
+            if (!categorySales[category]) {
+              categorySales[category] = 0
+            }
+            categorySales[category] += item.price * item.quantity
+          })
+        }
+      })
+
+      const salesByCategory = Object.entries(categorySales)
+        .map(([category, total]) => ({ category, total }))
+        .sort((a, b) => b.total - a.total)
+
+      // Calcular vendas por dia (para gráfico)
+      const salesByDay: Record<string, number> = {}
+
+      // Inicializar todos os dias do período com zero
+      const currentDate = new Date(startDate)
+      while (currentDate <= endDate) {
+        const dateKey = currentDate.toISOString().split("T")[0]
+        salesByDay[dateKey] = 0
+        currentDate.setDate(currentDate.getDate() + 1)
+      }
+
+      // Preencher com dados reais
+      filteredOrders.forEach((order) => {
+        const orderDate = new Date(order.createdAt).toISOString().split("T")[0]
+        if (salesByDay[orderDate] !== undefined) {
+          salesByDay[orderDate] += order.total
+        }
+      })
+
+      const salesByDayArray = Object.entries(salesByDay)
+        .map(([date, total]) => ({
+          date,
+          total,
+          label: new Date(date).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }),
+        }))
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+      // Comparação mensal (últimos 6 meses)
+      const monthlyComparison: { month: string; total: number }[] = []
+
+      for (let i = 5; i >= 0; i--) {
+        const monthDate = new Date(now.getFullYear(), now.getMonth() - i, 1)
+        const monthStart = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1)
+        const monthEnd = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0, 23, 59, 59)
+
+        const monthOrders = orders.filter((order) => {
+          const orderDate = new Date(order.createdAt)
+          return orderDate >= monthStart && orderDate <= monthEnd && order.status !== "cancelled"
+        })
+
+        const monthTotal = monthOrders.reduce((sum, order) => sum + order.total, 0)
+
+        monthlyComparison.push({
+          month: monthDate.toLocaleString("pt-BR", { month: "short" }),
+          total: monthTotal,
+        })
+      }
+
+      // Atualizar dados do relatório
+      setReportData({
+        totalSales,
+        orderCount: filteredOrders.length,
+        averageOrderValue,
+        topProducts,
+        salesByDay: salesByDayArray,
+        salesByCategory,
+        monthlyComparison,
+        periodLabel,
+      })
+    } catch (error) {
+      console.error("Erro ao gerar relatórios:", error)
+    }
+  }
+
+  // Função para renderizar o gráfico de barras simples
+  const renderBarChart = (data: any[], valueKey: string, labelKey: string) => {
+    if (!data || data.length === 0) return <div className="text-center py-4">Sem dados disponíveis</div>
+
+    const maxValue = Math.max(...data.map((item) => item[valueKey]))
+
+    return (
+      <div className="flex items-end h-[200px] gap-1 mt-4 overflow-x-auto pb-2">
+        {data.map((item, index) => {
+          const percentage = (item[valueKey] / maxValue) * 100
+          return (
+            <div key={index} className="flex flex-col items-center min-w-[40px] flex-1">
+              <div className="w-full bg-green-500 rounded-t-sm" style={{ height: `${Math.max(percentage, 3)}%` }}></div>
+              <div className="text-xs mt-1 text-center truncate w-full" title={item[labelKey]}>
+                {item[labelKey]}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
       <aside className="w-64 bg-green-800 text-white min-h-screen">
         <div className="p-4 flex items-center gap-2">
           <Leaf className="h-6 w-6" />
-          <h1 className="text-xl font-bold">Verde Vivo</h1>
+          <h1 className="text-xl font-bold">OrganiVenda</h1>
         </div>
 
         <div className="mt-8">
@@ -226,6 +444,14 @@ export default function ManagerDashboard() {
           >
             <ShoppingBag className="h-5 w-5" />
             <span>Vendas</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("reports")}
+            className={`w-full flex items-center gap-3 px-4 py-3 ${activeTab === "reports" ? "bg-green-700" : "hover:bg-green-700"}`}
+          >
+            <BarChart className="h-5 w-5" />
+            <span>Relatórios</span>
           </button>
         </div>
 
@@ -380,9 +606,9 @@ export default function ManagerDashboard() {
                               <Image
                                 className="h-10 w-10 rounded-full object-cover"
                                 src={product.image || "/placeholder.svg"}
-                                alt={product.name}
                                 width={40}
                                 height={40}
+                                alt={product.name}
                               />
                             </div>
                             <div className="ml-4">
@@ -580,6 +806,153 @@ export default function ManagerDashboard() {
           </div>
         )}
 
+        {/* Reports Tab */}
+        {activeTab === "reports" && (
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-800">Relatórios de Vendas</h2>
+              <div className="flex gap-2">
+                <select
+                  value={reportPeriod}
+                  onChange={(e) => setReportPeriod(e.target.value)}
+                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="current-month">Mês Atual</option>
+                  <option value="last-month">Mês Anterior</option>
+                  <option value="last-3-months">Últimos 3 Meses</option>
+                  <option value="year-to-date">Ano Atual</option>
+                  <option value="last-year">Ano Anterior</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Resumo de Vendas */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-sm font-medium text-gray-500">Total de Vendas</h3>
+                  <DollarSign className="h-5 w-5 text-green-600" />
+                </div>
+                <p className="text-2xl font-bold text-gray-800">R$ {reportData.totalSales.toFixed(2)}</p>
+                <p className="text-xs text-gray-500 mt-1">{reportData.periodLabel}</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-sm font-medium text-gray-500">Número de Pedidos</h3>
+                  <ShoppingBag className="h-5 w-5 text-green-600" />
+                </div>
+                <p className="text-2xl font-bold text-gray-800">{reportData.orderCount}</p>
+                <p className="text-xs text-gray-500 mt-1">{reportData.periodLabel}</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-sm font-medium text-gray-500">Valor Médio</h3>
+                  <ShoppingCart className="h-5 w-5 text-green-600" />
+                </div>
+                <p className="text-2xl font-bold text-gray-800">R$ {reportData.averageOrderValue.toFixed(2)}</p>
+                <p className="text-xs text-gray-500 mt-1">Por pedido</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-sm font-medium text-gray-500">Tendência</h3>
+                  <TrendingUp className="h-5 w-5 text-green-600" />
+                </div>
+                <p className="text-2xl font-bold text-gray-800">
+                  {reportData.monthlyComparison.length > 1 &&
+                  reportData.monthlyComparison[reportData.monthlyComparison.length - 2].total > 0
+                    ? (
+                        (reportData.monthlyComparison[reportData.monthlyComparison.length - 1].total /
+                          reportData.monthlyComparison[reportData.monthlyComparison.length - 2].total -
+                          1) *
+                        100
+                      ).toFixed(1) + "%"
+                    : "N/A"}
+                </p>
+                <p className="text-xs text-gray-500 mt-1">Comparado ao mês anterior</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+              {/* Gráfico de Vendas Mensais */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-4">Vendas Mensais</h3>
+                {renderBarChart(reportData.monthlyComparison, "total", "month")}
+                <div className="text-center text-xs text-gray-500 mt-2">Últimos 6 meses</div>
+              </div>
+
+              {/* Gráfico de Vendas por Categoria */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-4">Vendas por Categoria</h3>
+                {reportData.salesByCategory.length > 0 ? (
+                  <div>
+                    {renderBarChart(reportData.salesByCategory, "total", "category")}
+                    <div className="text-center text-xs text-gray-500 mt-2">{reportData.periodLabel}</div>
+                  </div>
+                ) : (
+                  <div className="text-center py-10 text-gray-500">Sem dados disponíveis</div>
+                )}
+              </div>
+            </div>
+
+            {/* Produtos Mais Vendidos */}
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h3 className="text-lg font-semibold mb-4">Produtos Mais Vendidos</h3>
+              {reportData.topProducts.length > 0 ? (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Produto
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Quantidade Vendida
+                        </th>
+                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Receita
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {reportData.topProducts.map((product: any) => (
+                        <tr key={product.id}>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm font-medium text-gray-900">{product.name}</div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-gray-900">{product.count} unidades</div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right">
+                            <div className="text-sm text-gray-900">R$ {product.revenue.toFixed(2)}</div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="text-center py-10 text-gray-500">Sem dados disponíveis</div>
+              )}
+            </div>
+
+            {/* Vendas Diárias */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold mb-4">Vendas Diárias</h3>
+              {reportData.salesByDay.length > 0 ? (
+                <div>
+                  {renderBarChart(reportData.salesByDay, "total", "label")}
+                  <div className="text-center text-xs text-gray-500 mt-2">{reportData.periodLabel}</div>
+                </div>
+              ) : (
+                <div className="text-center py-10 text-gray-500">Sem dados disponíveis</div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Order Details Modal */}
         {showOrderDetails && selectedOrder && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -648,13 +1021,12 @@ export default function ManagerDashboard() {
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex items-center">
                                 <div className="h-10 w-10 flex-shrink-0">
-
                                   <Image
                                     className="h-10 w-10 rounded-full object-cover"
                                     src={item.image || "/placeholder.svg"}
-                                    alt={item.name}
                                     width={40}
                                     height={40}
+                                    alt={item.name}
                                   />
                                 </div>
                                 <div className="ml-4">

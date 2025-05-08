@@ -17,9 +17,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/log-out.js [app-client] (ecmascript) <export default as LogOut>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shopping-cart.js [app-client] (ecmascript) <export default as ShoppingCart>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-toastify/dist/index.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -109,7 +111,7 @@ function CustomerDashboard() {
             }
             setCart(updatedCart);
             localStorage.setItem(`cart_${currentUser.id}`, JSON.stringify(updatedCart));
-            alert(`${product.name} adicionado ao carrinho!`);
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success(`${product.name} adicionado ao carrinho!`);
         } catch (error) {
             console.error("Erro ao adicionar ao carrinho:", error);
             alert("Erro ao adicionar produto ao carrinho. Tente novamente.");
@@ -196,7 +198,7 @@ function CustomerDashboard() {
             });
             setProducts(updatedProducts);
             localStorage.setItem("products", JSON.stringify(updatedProducts));
-            alert("Pedido realizado com sucesso!");
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success("Pedido realizado com sucesso!");
             setActiveTab("orders");
         } catch (error) {
             console.error("Erro ao finalizar pedido:", error);
@@ -222,17 +224,17 @@ function CustomerDashboard() {
                     children: "Carregando..."
                 }, void 0, false, {
                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                    lineNumber: 214,
+                    lineNumber: 216,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                lineNumber: 213,
+                lineNumber: 215,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-            lineNumber: 212,
+            lineNumber: 214,
             columnNumber: 7
         }, this);
     }
@@ -249,7 +251,7 @@ function CustomerDashboard() {
                                 className: "h-6 w-6"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 225,
+                                lineNumber: 227,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -257,13 +259,13 @@ function CustomerDashboard() {
                                 children: "Verde Vivo"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 226,
+                                lineNumber: 228,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 224,
+                        lineNumber: 226,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -277,20 +279,20 @@ function CustomerDashboard() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 236,
+                                        lineNumber: 238,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Produtos"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 239,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 230,
+                                lineNumber: 232,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -301,7 +303,7 @@ function CustomerDashboard() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 246,
+                                        lineNumber: 248,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -311,13 +313,13 @@ function CustomerDashboard() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 247,
+                                        lineNumber: 249,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 240,
+                                lineNumber: 242,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -328,20 +330,20 @@ function CustomerDashboard() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 256,
+                                        lineNumber: 258,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Meus Pedidos"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 257,
+                                        lineNumber: 259,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 250,
+                                lineNumber: 252,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -352,26 +354,26 @@ function CustomerDashboard() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 266,
+                                        lineNumber: 268,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Meu Perfil"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 267,
+                                        lineNumber: 269,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 260,
+                                lineNumber: 262,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 229,
+                        lineNumber: 231,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -385,7 +387,7 @@ function CustomerDashboard() {
                                         children: "Logado como:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 274,
+                                        lineNumber: 276,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -393,13 +395,13 @@ function CustomerDashboard() {
                                         children: currentUser.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 275,
+                                        lineNumber: 277,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 273,
+                                lineNumber: 275,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -410,32 +412,32 @@ function CustomerDashboard() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 280,
+                                        lineNumber: 282,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Sair"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 281,
+                                        lineNumber: 283,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 279,
+                                lineNumber: 281,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 271,
+                        lineNumber: 273,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                lineNumber: 223,
+                lineNumber: 225,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -448,7 +450,7 @@ function CustomerDashboard() {
                                 children: "Produtos Disponíveis"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 291,
+                                lineNumber: 293,
                                 columnNumber: 13
                             }, this),
                             products.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -458,12 +460,12 @@ function CustomerDashboard() {
                                     children: "Nenhum produto disponível no momento."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                    lineNumber: 295,
+                                    lineNumber: 297,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 294,
+                                lineNumber: 296,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
@@ -478,7 +480,7 @@ function CustomerDashboard() {
                                                 className: "w-full h-48 object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 303,
+                                                lineNumber: 305,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -489,7 +491,7 @@ function CustomerDashboard() {
                                                         children: product.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 311,
+                                                        lineNumber: 313,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -497,7 +499,7 @@ function CustomerDashboard() {
                                                         children: product.category || "Orgânico"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 312,
+                                                        lineNumber: 314,
                                                         columnNumber: 23
                                                     }, this),
                                                     product.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -505,7 +507,7 @@ function CustomerDashboard() {
                                                         children: product.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 314,
+                                                        lineNumber: 316,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -519,7 +521,7 @@ function CustomerDashboard() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 317,
+                                                                lineNumber: 319,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -529,13 +531,13 @@ function CustomerDashboard() {
                                                                 children: product.stock > 0 ? "Adicionar" : "Esgotado"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 318,
+                                                                lineNumber: 320,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 316,
+                                                        lineNumber: 318,
                                                         columnNumber: 23
                                                     }, this),
                                                     product.stock > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -546,30 +548,30 @@ function CustomerDashboard() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 330,
+                                                        lineNumber: 332,
                                                         columnNumber: 45
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 310,
+                                                lineNumber: 312,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, product.id, true, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 300,
+                                        lineNumber: 302,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 298,
+                                lineNumber: 300,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 290,
+                        lineNumber: 292,
                         columnNumber: 11
                     }, this),
                     activeTab === "cart" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -579,7 +581,7 @@ function CustomerDashboard() {
                                 children: "Meu Carrinho"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 342,
+                                lineNumber: 344,
                                 columnNumber: 13
                             }, this),
                             cart.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -590,7 +592,7 @@ function CustomerDashboard() {
                                         children: "Seu carrinho está vazio."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 346,
+                                        lineNumber: 348,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -599,13 +601,13 @@ function CustomerDashboard() {
                                         children: "Ver produtos"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 347,
+                                        lineNumber: 349,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 345,
+                                lineNumber: 347,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
@@ -623,7 +625,7 @@ function CustomerDashboard() {
                                                                 children: "Produto"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 360,
+                                                                lineNumber: 362,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -631,7 +633,7 @@ function CustomerDashboard() {
                                                                 children: "Preço"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 363,
+                                                                lineNumber: 365,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -639,7 +641,7 @@ function CustomerDashboard() {
                                                                 children: "Quantidade"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 366,
+                                                                lineNumber: 368,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -647,7 +649,7 @@ function CustomerDashboard() {
                                                                 children: "Subtotal"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 369,
+                                                                lineNumber: 371,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -655,18 +657,18 @@ function CustomerDashboard() {
                                                                 children: "Ações"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 372,
+                                                                lineNumber: 374,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 359,
+                                                        lineNumber: 361,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 360,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -688,12 +690,12 @@ function CustomerDashboard() {
                                                                                     height: 40
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                    lineNumber: 383,
+                                                                                    lineNumber: 385,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 382,
+                                                                                lineNumber: 384,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -703,23 +705,23 @@ function CustomerDashboard() {
                                                                                     children: item.name
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                    lineNumber: 392,
+                                                                                    lineNumber: 394,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 391,
+                                                                                lineNumber: 393,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 381,
+                                                                        lineNumber: 383,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 380,
+                                                                    lineNumber: 382,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -732,12 +734,12 @@ function CustomerDashboard() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 397,
+                                                                        lineNumber: 399,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 396,
+                                                                    lineNumber: 398,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -751,7 +753,7 @@ function CustomerDashboard() {
                                                                                 children: "-"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 401,
+                                                                                lineNumber: 403,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -759,7 +761,7 @@ function CustomerDashboard() {
                                                                                 children: item.quantity
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 407,
+                                                                                lineNumber: 409,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -768,18 +770,18 @@ function CustomerDashboard() {
                                                                                 children: "+"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 408,
+                                                                                lineNumber: 410,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 400,
+                                                                        lineNumber: 402,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 399,
+                                                                    lineNumber: 401,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -792,12 +794,12 @@ function CustomerDashboard() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 417,
+                                                                        lineNumber: 419,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 416,
+                                                                    lineNumber: 418,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -808,34 +810,34 @@ function CustomerDashboard() {
                                                                         children: "Remover"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 420,
+                                                                        lineNumber: 422,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 419,
+                                                                    lineNumber: 421,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, item.productId, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 379,
+                                                            lineNumber: 381,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 379,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                            lineNumber: 357,
+                                            lineNumber: 359,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 356,
+                                        lineNumber: 358,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -849,7 +851,7 @@ function CustomerDashboard() {
                                                         children: "Total:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 435,
+                                                        lineNumber: 437,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -860,13 +862,13 @@ function CustomerDashboard() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 436,
+                                                        lineNumber: 438,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 434,
+                                                lineNumber: 436,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -877,30 +879,30 @@ function CustomerDashboard() {
                                                     children: "Finalizar Pedido"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 439,
+                                                    lineNumber: 441,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 438,
+                                                lineNumber: 440,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 433,
+                                        lineNumber: 435,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 355,
+                                lineNumber: 357,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 341,
+                        lineNumber: 343,
                         columnNumber: 11
                     }, this),
                     activeTab === "orders" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -910,7 +912,7 @@ function CustomerDashboard() {
                                 children: "Meus Pedidos"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 455,
+                                lineNumber: 457,
                                 columnNumber: 13
                             }, this),
                             orders.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -921,7 +923,7 @@ function CustomerDashboard() {
                                         children: "Você ainda não fez nenhum pedido."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 459,
+                                        lineNumber: 461,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -930,13 +932,13 @@ function CustomerDashboard() {
                                         children: "Ver produtos"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 460,
+                                        lineNumber: 462,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 458,
+                                lineNumber: 460,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-6",
@@ -958,7 +960,7 @@ function CustomerDashboard() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 474,
+                                                                    lineNumber: 476,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -972,13 +974,13 @@ function CustomerDashboard() {
                                                                     }) : "Data não disponível"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 475,
+                                                                    lineNumber: 477,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 473,
+                                                            lineNumber: 475,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -987,23 +989,23 @@ function CustomerDashboard() {
                                                                 children: order.status === "completed" ? "Concluído" : order.status === "processing" ? "Em processamento" : "Pendente"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 488,
+                                                                lineNumber: 490,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 487,
+                                                            lineNumber: 489,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 472,
+                                                    lineNumber: 474,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 471,
+                                                lineNumber: 473,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1014,7 +1016,7 @@ function CustomerDashboard() {
                                                         children: "Itens do pedido"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 507,
+                                                        lineNumber: 509,
                                                         columnNumber: 23
                                                     }, this),
                                                     order.items && Array.isArray(order.items) ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1033,7 +1035,7 @@ function CustomerDashboard() {
                                                                                 className: "h-10 w-10 rounded-full object-cover mr-3"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 513,
+                                                                                lineNumber: 515,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1043,7 +1045,7 @@ function CustomerDashboard() {
                                                                                         children: item.name || "Produto sem nome"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                        lineNumber: 521,
+                                                                                        lineNumber: 523,
                                                                                         columnNumber: 35
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1055,19 +1057,19 @@ function CustomerDashboard() {
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                        lineNumber: 522,
+                                                                                        lineNumber: 524,
                                                                                         columnNumber: 35
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                                lineNumber: 520,
+                                                                                lineNumber: 522,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 512,
+                                                                        lineNumber: 514,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1078,31 +1080,31 @@ function CustomerDashboard() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                        lineNumber: 527,
+                                                                        lineNumber: 529,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, item.productId || index, true, {
                                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                lineNumber: 511,
+                                                                lineNumber: 513,
                                                                 columnNumber: 29
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 509,
+                                                        lineNumber: 511,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-sm text-gray-500",
                                                         children: "Informações dos itens não disponíveis"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                        lineNumber: 534,
+                                                        lineNumber: 536,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 506,
+                                                lineNumber: 508,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1115,7 +1117,7 @@ function CustomerDashboard() {
                                                             children: "Total"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 539,
+                                                            lineNumber: 541,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1126,35 +1128,35 @@ function CustomerDashboard() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 540,
+                                                            lineNumber: 542,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 538,
+                                                    lineNumber: 540,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                lineNumber: 537,
+                                                lineNumber: 539,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, order.id, true, {
                                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                        lineNumber: 470,
+                                        lineNumber: 472,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 468,
+                                lineNumber: 470,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 454,
+                        lineNumber: 456,
                         columnNumber: 11
                     }, this),
                     activeTab === "profile" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1164,7 +1166,7 @@ function CustomerDashboard() {
                                 children: "Meu Perfil"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 553,
+                                lineNumber: 555,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1179,7 +1181,7 @@ function CustomerDashboard() {
                                                     children: "Informações Pessoais"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 559,
+                                                    lineNumber: 561,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1192,7 +1194,7 @@ function CustomerDashboard() {
                                                                     children: "Nome"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 562,
+                                                                    lineNumber: 564,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1200,13 +1202,13 @@ function CustomerDashboard() {
                                                                     children: currentUser.name
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 563,
+                                                                    lineNumber: 565,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 561,
+                                                            lineNumber: 563,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1216,7 +1218,7 @@ function CustomerDashboard() {
                                                                     children: "Email"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 566,
+                                                                    lineNumber: 568,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1224,25 +1226,25 @@ function CustomerDashboard() {
                                                                     children: currentUser.email
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 567,
+                                                                    lineNumber: 569,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 565,
+                                                            lineNumber: 567,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 560,
+                                                    lineNumber: 562,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                            lineNumber: 558,
+                                            lineNumber: 560,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1252,7 +1254,7 @@ function CustomerDashboard() {
                                                     children: "Resumo da Conta"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 573,
+                                                    lineNumber: 575,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1266,7 +1268,7 @@ function CustomerDashboard() {
                                                                     children: "Total de Pedidos"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 576,
+                                                                    lineNumber: 578,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1274,13 +1276,13 @@ function CustomerDashboard() {
                                                                     children: orders.length
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 577,
+                                                                    lineNumber: 579,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 575,
+                                                            lineNumber: 577,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1291,7 +1293,7 @@ function CustomerDashboard() {
                                                                     children: "Itens no Carrinho"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 580,
+                                                                    lineNumber: 582,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1299,13 +1301,13 @@ function CustomerDashboard() {
                                                                     children: cart.length
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 581,
+                                                                    lineNumber: 583,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 579,
+                                                            lineNumber: 581,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1316,7 +1318,7 @@ function CustomerDashboard() {
                                                                     children: "Data de Cadastro"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 584,
+                                                                    lineNumber: 586,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1324,54 +1326,54 @@ function CustomerDashboard() {
                                                                     children: new Date(currentUser.createdAt).toLocaleDateString("pt-BR")
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                                    lineNumber: 585,
+                                                                    lineNumber: 587,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                            lineNumber: 583,
+                                                            lineNumber: 585,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                                    lineNumber: 574,
+                                                    lineNumber: 576,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                            lineNumber: 572,
+                                            lineNumber: 574,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                    lineNumber: 557,
+                                    lineNumber: 559,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                                lineNumber: 555,
+                                lineNumber: 557,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                        lineNumber: 552,
+                        lineNumber: 554,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/customer/dashboard/page.tsx",
-                lineNumber: 287,
+                lineNumber: 289,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/customer/dashboard/page.tsx",
-        lineNumber: 221,
+        lineNumber: 223,
         columnNumber: 5
     }, this);
 }
